@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Bicicletas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class="corpo" id="bicicleta">
+   <style>
+  body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111111;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  ul,
+  p,
+  blockquote,
+  dd {
+    margin: 0px;
+  }
+  
+  ul {
+    padding: 0px;
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .container {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+:root {
+    --cor-0: #ffffff;
+    --cor-1: #f7f7f7;
+    --cor-2: #ededed;
+    --cor-3: #dedede;
+    --cor-4: #cccccc;
+    --cor-5: #b2b2b2;
+    --cor-6: #9c9c9c;
+    --cor-7: #717171;
+    --cor-8: #595959;
+    --cor-9: #404040;
+    --cor-10: #2e2e2e; 
+    --cor-11: #111111;
+    --cor-12: #000000; 
+    --cor-p1: #ffbb00;
+    --cor-p2: #e4a30b;
+    --cor-p3: #a66f00;
+    --cor-p4: #664400;
+    --cor-p5: #332200;
+  
+  
+  .cor-0 {
+    color: var(--cor-0);
+  }
+  .cor-1 {
+    color: var(--cor-1);
+  }
+  .cor-2 {
+    color: var(--cor-2);
+  }
+  .cor-3 {
+    color: var(--cor-3);
+  }
+  .cor-4 {
+    color: var(--cor-4);
+  }
+  .cor-5 {
+    color: var(--cor-5);
+  }
+  .cor-6 {
+    color: var(--cor-6);
+  }
+  .cor-7 {
+    color: var(--cor-7);
+  }
+  .cor-8 {
+    color: var(--cor-8);
+  }
+  .cor-9 {
+    color: var(--cor-9);
+  }
+  .cor-10 {
+    color: var(--cor-10);
+  }
+  .cor-11 {
+    color: var(--cor-11);
+  }
+  .cor-12 {
+    color: var(--cor-12);
+  }
+  .cor-p1 {
+    color: var(--cor-p1);
+  }
+  .cor-p2 {
+    color: var(--cor-p2);
+  }
+  .cor-p3 {
+    color: var(--cor-p3);
+  }
+  .cor-p4 {
+    color: var(--cor-p4);
+  }
+  .cor-p5 {
+    color: var(--cor-p5);
+  }
+}
+  
+.footer-bg {
+    background-color: var(--cor-12);
+  }
+  
+  .footer {
+    display: grid;
+    grid-template-columns: 3fr 5fr 4fr;
+    gap: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .footer h3 {
+    margin-bottom: 32px;
+  }
+  
+  .footer-contato ul {
+    margin-bottom: 32px;
+  }
+  
+  .footer-contato li:nth-child(even):after {
+    content: "";
+    display: block;
+    max-width: 360px;
+    height: 2px;
+    background: var(--cor-11);
+    margin-top: 16px;
+  }
+  
+  .footer li {
+    margin-bottom: 16px;
+  }
+  
+  .footer-redes {
+    display: flex;
+    gap: 32px;
+  }
+  
+  .footer a:hover {
+    color: var(--cor-0);
+  }
+  
+  .footer-copy {
+    grid-column: 1/-1;
+    margin-top: 40px;
+  }
+  
+  @media (max-width: 800px) {
+    .footer > img {
+      display: none;
+    }
+    .footer {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .footer {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+    .footer-copy {
+      margin-top: 0px;
+    }
+  }
+  .header-bg {
+    background-color: var(--cor-12);
+  }
+  
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .header-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .header-menu a {
+    display: inline-block;
+    padding: 16px 0px;
+    position: relative;
+  }
+  
+  .header-menu a:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0px;
+    background: var(--cor-0);
+    margin-top: 4px;
+    transition: 0.3s;
+    position: absolute;
+  }
+  
+  .header-menu a:hover::after,
+  .header-menu a.ativo::after {
+    width: 100%;
+  }
+  
+  @media (max-width: 800px) {
+    .header-menu {
+      gap: 20px;
+    }
+    .header-menu a {
+      background: var(--cor-11);
+      padding: 12px 16px;
+      border-radius: 4px;
+    }
+    .header-menu a:hover {
+      background-color: var(--cor-10);
+    }
+    .header a:after {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .header-menu {
+      gap: 12px;
+    }
+    .header-menu a {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }
+  
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  img[src$=".jpg"] {
+    border-radius: 4px;
+  }
+.botao {
+    display: inline-block;
+    padding: 16px 32px;
+    background: linear-gradient(#ffbf00, #f2a50c);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    color: var(--cor-p5);
+    font: 600 1.125rem/1.35 "Poppins", sans-serif;
+    max-width: max-content;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .botao:hover {
+    background: linear-gradient(#ffb60d, #e59317);
+  }
+
+.font-1-xs {
+    font: 400 0.75rem/1.35 "Poppins", sans-serif;
+  }
+  
+  .font-2-xs {
+    font: 400 0.875rem/1.43 "Roboto", sans-serif;
+  }
+  
+  .font-1-s {
+    font: 400 1rem/1.5 "Poppins", sans-serif;
+  }
+  
+  .font-2-s {
+    font: 400 1rem/1.5 "Roboto", sans-serif;
+  }
+  
+  .font-1-m,
+  .font-1-m-b {
+    font: 400 1.125rem/1.35 "Poppins", sans-serif;
+  }
+  
+  .font-1-m-b {
+    font-weight: 600;
+  }
+  
+  .font-2-m {
+    font: 500 1.125rem/1.35 "Roboto", sans-serif;
+  }
+  
+  .font-1-l {
+    font: 400 1.5rem/1.5 "Poppins", sans-serif;
+  }
+  
+  .font-2-l,
+  .font-2-l-b {
+    font: 400 1.5rem/1.5 "Roboto", sans-serif;
+  }
+  
+  .font-2-l-b {
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+  
+  .font-1-xl {
+    font: 600 2rem/1.25 "Poppins", sans-serif;
+  }
+  
+  .font-2-xl {
+    font: 500 2rem/1.25 "Roboto", sans-serif;
+  }
+  
+  .font-1-xxl {
+    font: 600 4rem/1.125 "Poppins", sans-serif;
+  }
+.bicicleta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#bicicleta .titulo p {
+  text-transform: uppercase;
+}
+
+.bicicleta-imagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bicicleta-imagens img {
+  flex: 1;
+  min-width: 200px;
+}
+
+.bicicleta-imagens img:first-child {
+  min-width: 100%;
+}
+
+.bicicleta-conteudo > p {
+  margin-bottom: 32px;
+}
+
+.bicicleta-comprar {
+  display: grid;
+  grid-template-columns: max-content auto;
+  align-items: center;
+  justify-items: start;
+  gap: 8px 12px;
+  margin-bottom: 40px;
+}
+
+.bicicleta-comprar a {
+  grid-row: span 2;
+}
+
+.bicicleta-comprar span {
+  display: flex;
+  align-items: center;
+  background-color: var(--cor-12);
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.bicicleta-conteudo h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  margin-bottom: 12px;
+}
+
+.bicicleta-informacoes,
+.bicicleta-ficha {
+  padding: 32px;
+  background-color: var(--cor-12);
+  border-radius: 4px;
+}
+
+.bicicleta-informacoes {
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.bicicleta-informacoes img {
+  width: 24px;
+  margin-bottom: 8px;
+}
+
+.bicicleta-informacoes h3 {
+  margin-bottom: 8px;
+}
+
+.bicicleta-ficha li {
+  padding: 4px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--cor-11);
+}
+
+.bicicleta-ficha li:last-child {
+  border-bottom: none;
+}
+
+.bicicleta-ficha span {
+  color: var(--cor-6);
+}
+
+@media (max-width: 800px) {
+  .bicicleta {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .bicicleta-imagens {
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 400px) {
+  .bicicleta-informacoes {
+    grid-template-columns: 1fr;
+  }
+  .bicicleta-comprar {
+    grid-template-columns: 1fr;
+  }
+}
+.seguro-bg {
+  background-color: var(--cor-11);
+}
+
+.seguro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.seguro-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seguro-conteudo {
+  padding-top: 180px;
+  padding-bottom: 180px;
+}
+
+.seguro h2 {
+  margin-bottom: 32px;
+}
+
+.seguro p {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+  .seguro-bg {
+    box-shadow: inset 0 -60px var(--cor-12);
+  }
+  .seguro {
+    grid-template-columns: 1fr;
+  }
+  .seguro-conteudo {
+    grid-row: 1;
+    padding-top: 40px;
+    padding-bottom: 0px;
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.botao {
+  display: inline-block;
+  padding: 16px 32px;
+  background: linear-gradient(#ffbf00, #f2a50c);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  color: var(--cor-p5);
+  font: 600 1.125rem/1.35 "Poppins", sans-serif;
+  max-width: max-content;
+  border: none;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: linear-gradient(#ffb60d, #e59317);
+}
+
+.botao.secundario {
+  background: var(--cor-10);
+  color: var(--cor-2);
+}
+
+.botao.secundario:hover {
+  background: var(--cor-9);
+}
+
+.botao.seta {
+  display: flex;
+  align-items: center;
+}
+
+.botao.seta::after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  margin-left: 12px;
+  background: url("../../img/icones/seta.svg");
+  transition: transform 0.2s;
+}
+
+.botao.seta:hover::after {
+  transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+  .botao {
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+}
+
+.link {
+  display: inline-block;
+  color: var(--cor-p1);
+  font: 500 1.5rem/1.5 "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+
+.link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: currentColor;
+}
+
+.link:hover {
+  color: var(--cor-0);
+}
+
+.titulo-bg {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: var(--cor-11);
+}
+
+.titulo {
+  background: url("../../img/dec/top-right.svg") no-repeat top right 20px;
+}
+
+.titulo p {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 800px) {
+  .titulo-bg {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .titulo p {
+    font-size: 1rem;
+    text-transform: lowercase;
+    font-weight: 400;
+  }
+}
+    </style>    
+        
+    <header class="header-bg">
+    <div class="header container">
+      <a href="home">
+        <img src="/img/bikeshop.svg" width="136" height="32" alt="Bikeshop">
+      </a>
+      <nav aria-label="primaria">
+        <ul class="header-menu font-1-m cor-0">
+          <li><a href="/">Modo Escuro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>    
+        
+        
+        
+        
+        
+        
+        
+    <main class="titulo-bg">
+    <div>
+      <div class="titulo container">
+        <p class="font-2-xl cor-5">R$ 4999</p>
+        <h1 class="font-1-xxl cor-0">Nimbus Stark<span class="cor-p1">.</span></h1>
+      </div>
+    </div>
+    <div class="bicicleta container">
+      <div class="bicicleta-imagens">
+        <img src="/img/magic.jpg" alt="Bicicleta">
+      </div>
+      <div class="bicicleta-conteudo">
+        <p class="font-2-l cor-5">A Nimbus Stark é a melhor Bikeshop já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.</p>
+        <div class="bicicleta-comprar">
+          <a class="botao" href="compra">Comprar Agora</a>
+          <span class="font-1-xs cor-6"><img src="/img/icones/entrega.svg" alt=""> entrega em 5 dias</span>
+          <span class="font-1-xs cor-6"><img src="/img/icones/estoque.svg" alt=""> 18 em estoque</span>
+        </div>
+
+        <h2 class="font-1-xs cor-0">Informações</h2>
+        <ul class="bicicleta-informacoes">
+          <li>
+            <img src="/img/eletrica.svg" alt="">
+            <h3 class="font-1-m cor-0">Motor Elétrico</h3>
+            <p class="font-2-xs cor-5">Permite você viajar distâncias inimaginaveis com a sua bike.</p>
+          </li>
+          <li>
+            <img src="/img/velocidade.svg" alt="">
+            <h3 class="font-1-m cor-0">50 km/h</h3>
+            <p class="font-2-xs cor-5">A mais rápida bicicleta elétrica disponível hoje no mercado.</p>
+          </li>
+          <li>
+            <img src="/img/rastreador.svg" alt="">
+            <h3 class="font-1-m cor-0">Rastreador</h3>
+            <p class="font-2-xs cor-5">Rastreador e sistema anti-furto para garantir o seu sossego.</p>
+          </li>
+          <li>
+            <img src="/img/carbono.svg" alt="">
+            <h3 class="font-1-m cor-0">Fibra de Carbono</h3>
+            <p class="font-2-xs cor-5">Maior proteção possível para a sua Bikeshop com fibra de carbono.</p>
+          </li>
+        </ul>
+        <h2 class="font-1-xs cor-0">Ficha Técnica</h2>
+        <ul class="bicicleta-ficha font-2-s cor-4">
+          <li>Peso <span>9 kg</span></li>
+          <li>Altura <span>60 cm</span></li>
+          <li>Largura <span>120 cm</span></li>
+          <li>Profundidade <span>10 cm</span></li>
+          <li>Marchas <span>16</span></li>
+          <li>Roda <span>29</span></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  
+  <article class="seguro-bg">
+    <div class="seguro container">
+      <div class="seguro-imagem">
+        <img src="/img/seguros.jpg" alt="Pessoa parada em cima de uma bicicleta.">
+      </div>
+      <div class="seguro-conteudo">
+        <h2 class="font-1-xxl cor-0">Pedale mais tranquilo com o nosso <span class="cor-p1">seguro.</span></h2>
+        <p class="font-2-l cor-5">Inscreva-se em um dos planos do nosso seguro Bikeshop e aproveite diversos benefícios.</p>
+      </div>
+    </div>
+  </article>
+  
+  <footer class="footer-bg">
+    <div class="footer container">
+      <img src="/img/bikeshop.svg" width="136" height="32" alt="logo">
+      <div class="footer-contato">
+        <h3 class="font-2-l-b cor-0">Contato</h3>
+        <ul class="font-2-m cor-5">
+          <li><a href="tel:+551199999999">+55 11 9999-9999</a></li>
+          <li><a href="mailto:contato@bikeshop.com">contato@bikeshop.com</a></li>
+          <li>Rua Maria Nascimento - São Bernardo do Campo</li>
+          <li>São Paulo - SP</li>
+        </ul>
+      <div class="footer-informacoes">
+        <h3 class="font-2-l-b cor-0">Informações</h3>
+      </div>
+      <p class="footer-copy font-2-m cor-6">Bikeshop © Alguns direitos reservados.</p>
+    </div>
+  </footer>
+        
+        
+    </body>
+</html>
