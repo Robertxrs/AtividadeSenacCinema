@@ -5,14 +5,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html>
     <head>
-        <title>Bikeshop</title>
+        <title>Bicicletas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/style.css">
     </head>
-    <body>
-    <style>
-            body {
+    <body class="corpo" id="bicicleta">
+   <style>
+  body {
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
     color: #111111;
@@ -341,142 +340,273 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   .font-1-xxl {
     font: 600 4rem/1.125 "Poppins", sans-serif;
   }
-  .introducao-bg {
-    background: var(--cor-12) no-repeat
-      bottom 160px left 20px;
-    box-shadow: inset 0 -120px var(--cor-0);
+.bicicleta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#bicicleta .titulo p {
+  text-transform: uppercase;
+}
+
+.bicicleta-imagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bicicleta-imagens img {
+  flex: 1;
+  min-width: 200px;
+}
+
+.bicicleta-imagens img:first-child {
+  min-width: 100%;
+}
+
+.bicicleta-conteudo > p {
+  margin-bottom: 32px;
+}
+
+.bicicleta-comprar {
+  display: grid;
+  grid-template-columns: max-content auto;
+  align-items: center;
+  justify-items: start;
+  gap: 8px 12px;
+  margin-bottom: 40px;
+}
+
+.bicicleta-comprar a {
+  grid-row: span 2;
+}
+
+.bicicleta-comprar span {
+  display: flex;
+  align-items: center;
+  background-color: var(--cor-12);
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.bicicleta-conteudo h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  margin-bottom: 12px;
+}
+
+.bicicleta-informacoes,
+.bicicleta-ficha {
+  padding: 32px;
+  background-color: var(--cor-12);
+  border-radius: 4px;
+}
+
+.bicicleta-informacoes {
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.bicicleta-informacoes img {
+  width: 24px;
+  margin-bottom: 8px;
+}
+
+.bicicleta-informacoes h3 {
+  margin-bottom: 8px;
+}
+
+.bicicleta-ficha li {
+  padding: 4px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--cor-11);
+}
+
+.bicicleta-ficha li:last-child {
+  border-bottom: none;
+}
+
+.bicicleta-ficha span {
+  color: var(--cor-6);
+}
+
+@media (max-width: 800px) {
+  .bicicleta {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
-  
-  .introducao {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0px 40px;
+  .bicicleta-imagens {
+    grid-row: 2;
   }
-  
-  .introducao-conteudo {
-    align-self: end;
-    padding-bottom: 200px;
+}
+
+@media (max-width: 400px) {
+  .bicicleta-informacoes {
+    grid-template-columns: 1fr;
   }
-  
-  .introducao img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
+  .bicicleta-comprar {
+    grid-template-columns: 1fr;
   }
-  
-  .introducao h1 {
-    margin-bottom: 32px;
+}
+.seguro-bg {
+  background-color: var(--cor-11);
+}
+
+.seguro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.seguro-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seguro-conteudo {
+  padding-top: 180px;
+  padding-bottom: 180px;
+}
+
+.seguro h2 {
+  margin-bottom: 32px;
+}
+
+.seguro p {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+  .seguro-bg {
+    box-shadow: inset 0 -60px var(--cor-12);
   }
-  
-  .introducao p {
-    margin-bottom: 20px;
+  .seguro {
+    grid-template-columns: 1fr;
   }
-  
-  @media (max-width: 800px) {
-    .introducao-bg {
-      background: var(--cor-11);
-      padding-top: 40px;
-      box-shadow: inset 0 -60px #ffffff;
-    }
-    .introducao {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-    .introducao-conteudo {
-      padding-bottom: 0px;
-    }
-    .introducao h1 {
-      margin-bottom: 16px;
-    }
-    .introducao img {
-      height: 300px;
-      width: 100%;
-    }
+  .seguro-conteudo {
+    grid-row: 1;
+    padding-top: 40px;
+    padding-bottom: 0px;
   }
-  .bicicletas-lista {
-    padding-top: 60px;
-    padding-bottom: 120px;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.botao {
+  display: inline-block;
+  padding: 16px 32px;
+  background: linear-gradient(#ffbf00, #f2a50c);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  color: var(--cor-p5);
+  font: 600 1.125rem/1.35 "Poppins", sans-serif;
+  max-width: max-content;
+  border: none;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: linear-gradient(#ffb60d, #e59317);
+}
+
+.botao.secundario {
+  background: var(--cor-10);
+  color: var(--cor-2);
+}
+
+.botao.secundario:hover {
+  background: var(--cor-9);
+}
+
+.botao.seta {
+  display: flex;
+  align-items: center;
+}
+
+.botao.seta::after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  margin-left: 12px;
+  background: url("../../img/icones/seta.svg");
+  transition: transform 0.2s;
+}
+
+.botao.seta:hover::after {
+  transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+  .botao {
+    padding: 12px 16px;
+    font-size: 1rem;
   }
-  
-  .bicicletas-lista h2 {
-    margin-bottom: 40px;
+}
+
+.link {
+  display: inline-block;
+  color: var(--cor-p1);
+  font: 500 1.5rem/1.5 "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+
+.link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: currentColor;
+}
+
+.link:hover {
+  color: var(--cor-0);
+}
+
+.titulo-bg {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: var(--cor-11);
+}
+
+.titulo {
+  background: url("../../img/dec/top-right.svg") no-repeat top right 20px;
+}
+
+.titulo p {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 800px) {
+  .titulo-bg {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
-  
-  .bicicletas-lista ul {
-    display: flex;
-    gap: 40px;
-    padding: 0 20px 20px 20px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto;
+  .titulo p {
+    font-size: 1rem;
+    text-transform: lowercase;
+    font-weight: 400;
   }
-  
-  #bicicleta .bicicletas-lista ul {
-    padding: 0px 0px 20px 0px;
-  }
-  
-  .bicicletas-lista li {
-    flex: 1;
-    min-width: 280px;
-  }
-  
-      .bicicletas-lista ul {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-      padding: 0;
-    }
-    .bicicletas-lista li {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 16px;
-      text-align: center;
-    }
-  
-  .bicicletas-lista a {
-    display: block;
-  }
-  
-  .bicicletas-lista img {
-    margin-bottom: 16px;
-  }
-  
-  .bicicletas-lista h3 {
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .bicicletas-lista h3::before {
-    content: "";
-    display: inline-block;
-    height: 8px;
-    width: 12px;
-    margin-right: 8px;
-    background-color: var(--cor-p1);
-    transition: width 0.2s;
-  }
-  
-  .bicicletas-lista a:hover h3::before {
-    width: 24px;
-  }
-  
-  .bicicletas-lista li span {
-    padding-left: 20px;
-  }
-  
-  @media (max-width: 800px) {
-    .bicicletas-lista {
-      padding-bottom: 60px;
-    }
-    .bicicletas-lista ul {
-      gap: 20px;
-    }
-  }
-  
-  
+}
+
 .dark-mode {
   --background-main: var(--cor-10);
   --background-secondary: var(--cor-11);
@@ -484,7 +614,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   --text-main: var(--cor-3);
   --text-secondary: var(--cor-1);
   --text-muted: var(--cor-6);
-  --card-border: var(--cor-9);
 }
 
 .dark-mode .corpo,
@@ -492,8 +621,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 .dark-mode .contato-formulario,
 .dark-mode .form input,
 .dark-mode .perguntas dl > div:nth-child(odd),
-.dark-mode .orcamento-dados,
-.dark-mode .bicicletas-lista {
+.dark-mode .orcamento-dados {
   background-color: var(--background-main);
 }
 
@@ -528,9 +656,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
 .dark-mode .perguntas button,
 .dark-mode .termos h2,
-.dark-mode .orcamento-dados h2 {
+.dark-mode .orcamento-dados h2{
   color: var(--text-secondary);
-}
+}   
 
 .dark-mode .perguntas dd,
 .dark-mode .termos p,
@@ -543,67 +671,91 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
   color: var(--cor-9);
 }
 
-.dark-mode .bicicletas-lista ul li {
-  border: 1px solid var(--card-border);
-  background-color: var(--background-highlight);
-  color: var(--text-main);
-  transition: 0.3s;
-}
 
-.dark-mode .bicicletas-lista ul li:hover {
-  background-color: var(--background-secondary);
-  color: var(--text-secondary);
-}
-
-.dark-mode .bicicletas-lista h2 {
-  color: var(--text-main);
-}
-
-.dark-mode .bicicletas-lista h3 {
-  color: var(--text-secondary);
-}
-
-.dark-mode .bicicletas-lista span {
-  color: var(--text-muted);
-}
-
-  
-    </style>
+    </style>    
         
-  <header class="header-bg">
+    <header class="header-bg">
     <div class="header container">
       <a href="home">
         <img src="/img/bikeshop.svg" width="136" height="32" alt="Bikeshop">
       </a>
-      <nav aria-label="primaria">
-        <ul class="header-menu font-1-m cor-0">
-          <li><a class="botaoEscuro">Modo Escuro</a></li>
-        </ul>
-      </nav>
     </div>
-  </header>
-
-  <main class="introducao-bg">
-    <div class="introducao container">
-      <div class="introducao-conteudo">
-        <h1 class="font-1-xxl cor-0 fadeInDown" data-anime="200">Bicicletas feitas sob medida<span class="cor-p1">.</span></h1>
-        <p class="font-2-l cor-5 fadeInDown" data-anime="400">Bicicletas elétricas de alta precisão e qualidade, feitas sob medida para você. Explore o mundo na sua velocidade com a Bikeshop.</p>
+  </header>    
+        
+        
+        
+  <main class="titulo-bg">
+    <div>
+      <div class="titulo container">
+        <p class="font-2-xl cor-5">R$ 2499</p>
+        <h1 class="font-1-xxl cor-0">Magic Might<span class="cor-p1">.</span></h1>
       </div>
-      <picture data-anime="800" class="fadeInDown">
-        <source media="(max-width: 800px)" srcset="/img/bicicletas/nimbus.jpg">
-        <img src="/img/introducao.jpg" width="1280" height="1600" alt="Bicicleta elétrica preta.">
-      </picture>
     </div>
-  </main>
+    <div class="bicicleta container">
+      <div class="bicicleta-imagens">
+        <img src="/img/magic.jpg" alt="Bicicleta">
+      </div>
+      <div class="bicicleta-conteudo">
+        <p class="font-2-l cor-5">A Nimbus Stark é a melhor Bikeshop já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.</p>
+        <div class="bicicleta-comprar">
+          <a class="botao" href="compra">Comprar Agora</a>
+          <span class="font-1-xs cor-6"><img src="/img/icones/entrega.svg" alt=""> entrega em 5 dias</span>
+          <span class="font-1-xs cor-6"><img src="/img/icones/estoque.svg" alt=""> 18 em estoque</span>
+        </div>
 
-  <article class="bicicletas-lista">
-    <h2 class="container font-1-xxl">Escolha a sua<span class="cor-p1">.</span></h2>
-    <ul id="bike-list">
-      
-    </ul>
+        <h2 class="font-1-xs cor-0">Informações</h2>
+        <ul class="bicicleta-informacoes">
+          <li>
+            <img src="/img/eletrica.svg" alt="">
+            <h3 class="font-1-m cor-0">Motor Elétrico</h3>
+            <p class="font-2-xs cor-5">Permite você viajar distâncias inimaginaveis com a sua bike.</p>
+          </li>
+          <li>
+            <img src="/img/velocidade.svg" alt="">
+            <h3 class="font-1-m cor-0">50 km/h</h3>
+            <p class="font-2-xs cor-5">A mais rápida bicicleta elétrica disponível hoje no mercado.</p>
+          </li>
+          <li>
+            <img src="/img/rastreador.svg" alt="">
+            <h3 class="font-1-m cor-0">Rastreador</h3>
+            <p class="font-2-xs cor-5">Rastreador e sistema anti-furto para garantir o seu sossego.</p>
+          </li>
+          <li>
+            <img src="/img/carbono.svg" alt="">
+            <h3 class="font-1-m cor-0">Fibra de Carbono</h3>
+            <p class="font-2-xs cor-5">Maior proteção possível para a sua Bikeshop com fibra de carbono.</p>
+          </li>
+        </ul>
+        <h2 class="font-1-xs cor-0">Ficha Técnica</h2>
+        <ul class="bicicleta-ficha font-2-s cor-4">
+          <li>Peso <span>9 kg</span></li>
+          <li>Altura <span>60 cm</span></li>
+          <li>Largura <span>120 cm</span></li>
+          <li>Profundidade <span>10 cm</span></li>
+          <li>Marchas <span>16</span></li>
+          <li>Roda <span>29</span></li>
+        </ul>
+      </div>
+    </div>
+  </main>   
+   
+        
+        
+   
+
+  
+  <article class="seguro-bg">
+    <div class="seguro container">
+      <div class="seguro-imagem">
+        <img src="/img/seguros.jpg" alt="Pessoa parada em cima de uma bicicleta.">
+      </div>
+      <div class="seguro-conteudo">
+        <h2 class="font-1-xxl cor-0">Pedale mais tranquilo com o nosso <span class="cor-p1">seguro.</span></h2>
+        <p class="font-2-l cor-5">Inscreva-se em um dos planos do nosso seguro Bikeshop e aproveite diversos benefícios.</p>
+      </div>
+    </div>
   </article>
-    
-
+  
   <footer class="footer-bg">
     <div class="footer container">
       <img src="/img/bikeshop.svg" width="136" height="32" alt="logo">
@@ -621,47 +773,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
       <p class="footer-copy font-2-m cor-6">Bikeshop © Alguns direitos reservados.</p>
     </div>
   </footer>
-    
-        <script>
-        function modoEscuro() {
-        return {
-          escuro: document.querySelector('.botaoEscuro'),
-
-          inicia() {
-            this.pressionaBotao();
-          },
-
-          pressionaBotao() {
-            this.escuro.addEventListener('click', () => {
-              document.documentElement.classList.toggle('dark-mode');
-            });
-          },
-        }
-      }
-
-      const modo = modoEscuro();
-      modo.inicia();
-
-      fetch('http://localhost:8082/api/bikeshop/all')
-  .then(response => response.json())
-  .then(bikes => {
-    const bikeList = document.getElementById('bike-list');
-    bikeList.innerHTML = bikes.map(bike => `
-      <li>
-        <a href="/bikeshop/${bike.page}">
-          <img src="${bike.imagem}" alt="${bike.nome}" width="920" height="1040">
-          <h3 class="font-1-xl">${bike.nome}</h3>
-          <span class="font-2-m cor-8">R$ ${bike.preco.toFixed(2)}</span>
-        </a>
-      </li>
-    `).join('');
-  })
-  .catch(error => console.error('Erro ao carregar bicicletas:', error));
-
-
-
-    </script>
-    
-    
+        
+       
     </body>
 </html>

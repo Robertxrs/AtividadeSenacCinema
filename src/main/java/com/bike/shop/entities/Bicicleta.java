@@ -15,18 +15,31 @@ public class Bicicleta{
     private String descricao;
     private double preco;
     private String imagem;
+    private String page;
 
-    public Bicicleta(String id, String nome, String descricao, double preco, String imagem) {
+    public Bicicleta(String id, String nome, String descricao, double preco, String imagem, String page) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.imagem = imagem;
+        this.page = page;
     }
+
+
 
     public Bicicleta() {
     }
 
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
+
+    
     public String getId() {
         return id;
     }

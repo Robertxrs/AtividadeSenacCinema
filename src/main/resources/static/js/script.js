@@ -50,7 +50,7 @@ function validarFormulario(event) {
             alert(mensagemErro);
         } else {
             alert('Formulário enviado com sucesso!');
-            document.querySelector('.orcamento').submit(); // Envia o formulário
+            document.querySelector('.orcamento').submit();
         }
     }
     function validarCPF(cpf) {

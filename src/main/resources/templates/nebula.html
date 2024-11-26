@@ -606,6 +606,72 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     font-weight: 400;
   }
 }
+
+.dark-mode {
+  --background-main: var(--cor-10);
+  --background-secondary: var(--cor-11);
+  --background-highlight: var(--cor-p3);
+  --text-main: var(--cor-3);
+  --text-secondary: var(--cor-1);
+  --text-muted: var(--cor-6);
+}
+
+.dark-mode .corpo,
+.dark-mode #seguros,
+.dark-mode .contato-formulario,
+.dark-mode .form input,
+.dark-mode .perguntas dl > div:nth-child(odd),
+.dark-mode .orcamento-dados {
+  background-color: var(--background-main);
+}
+
+.dark-mode .introducao-bg,
+.dark-mode .tecnologia-bg,
+.dark-mode .seguro-bg {
+  box-shadow: inset 0 -120px var(--background-main);
+}
+
+.dark-mode .tecnologia-bg {
+  box-shadow: inset 0 80px var(--background-main), inset 0 -80px var(--background-main);
+}
+
+.dark-mode .bicicletas-bg {
+  background: linear-gradient(to right, var(--background-main) 30%, var(--background-secondary) 0%);
+}
+
+.dark-mode .depoimento-conteudo,
+.dark-mode .depoimento,
+.dark-mode .lojas-item {
+  background-color: var(--background-highlight);
+}
+
+.dark-mode #contato,
+.dark-mode #orcamento {
+  background: var(--background-secondary);
+}
+
+.dark-mode #orcamento {
+  background: linear-gradient(var(--background-secondary) 600px, var(--background-secondary) 0px);
+}
+
+.dark-mode .perguntas button,
+.dark-mode .termos h2,
+.dark-mode .orcamento-dados h2{
+  color: var(--text-secondary);
+}   
+
+.dark-mode .perguntas dd,
+.dark-mode .termos p,
+.dark-mode .orcamento-dados {
+  color: var(--text-main);
+}
+
+.dark-mode .lojas-item h3, 
+.dark-mode .lojas-item p {
+  color: var(--cor-9);
+}
+
+
     </style>    
         
     <header class="header-bg">
@@ -613,30 +679,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
       <a href="home">
         <img src="/img/bikeshop.svg" width="136" height="32" alt="Bikeshop">
       </a>
-      <nav aria-label="primaria">
-        <ul class="header-menu font-1-m cor-0">
-          <li><a href="/">Modo Escuro</a></li>
-        </ul>
-      </nav>
     </div>
   </header>    
         
-        
-        
-        
-        
-        
-        
-    <main class="titulo-bg">
+  <main class="titulo-bg">
     <div>
       <div class="titulo container">
-        <p class="font-2-xl cor-5">R$ 4999</p>
-        <h1 class="font-1-xxl cor-0">Nimbus Stark<span class="cor-p1">.</span></h1>
+        <p class="font-2-xl cor-5">R$ 3999</p>
+        <h1 class="font-1-xxl cor-0">Nebula Stark<span class="cor-p1">.</span></h1>
       </div>
     </div>
     <div class="bicicleta container">
       <div class="bicicleta-imagens">
-        <img src="/img/magic.jpg" alt="Bicicleta">
+        <img src="/img/nebula.jpg" alt="Bicicleta">
       </div>
       <div class="bicicleta-conteudo">
         <p class="font-2-l cor-5">A Nimbus Stark é a melhor Bikeshop já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.</p>
@@ -680,9 +735,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </ul>
       </div>
     </div>
-  </main>
-
-  
+  </main>           
+        
   <article class="seguro-bg">
     <div class="seguro container">
       <div class="seguro-imagem">
@@ -710,9 +764,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <h3 class="font-2-l-b cor-0">Informações</h3>
       </div>
       <p class="footer-copy font-2-m cor-6">Bikeshop © Alguns direitos reservados.</p>
-    </div>
-  </footer>
-        
-        
+        </div>
+     </footer>
+       
     </body>
 </html>

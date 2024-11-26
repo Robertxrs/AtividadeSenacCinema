@@ -9,6 +9,7 @@ import com.bike.shop.service.BicicletasService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,21 +31,18 @@ public class BicicletasRestController {
         return bicicletasService.findAll();
     }
 
-    // Obter uma bicicleta por ID
     @GetMapping("/{id}")
     public Optional<Bicicleta> getBicicletaById(@PathVariable String id) {
         return bicicletasService.findById(id);
     }
 
-    // Adicionar uma nova bicicleta
     @PostMapping("/add")
     public Bicicleta addBicicleta(@RequestBody Bicicleta bicicleta) {
         return bicicletasService.save(bicicleta);
     }
-
-    // Atualizar uma bicicleta existente
+    
     @PutMapping("/update/{id}")
-    public Bicicleta updateBicicleta(@PathVariable String id, @RequestBody Bicicleta bicicleta) {
+    public ResponseEntity<Bicicleta> updateBicicleta(@PathVariable String id, @RequestBody Bicicleta bicicleta) {
         Optional<Bicicleta> existingBicicleta = bicicletasService.findById(id);
         if (existingBicicleta.isPresent()) {
             Bicicleta updatedBicicleta = existingBicicleta.get();
@@ -52,14 +50,19 @@ public class BicicletasRestController {
             updatedBicicleta.setDescricao(bicicleta.getDescricao());
             updatedBicicleta.setPreco(bicicleta.getPreco());
             updatedBicicleta.setImagem(bicicleta.getImagem());
-            return bicicletasService.save(updatedBicicleta);
+            return ResponseEntity.ok(bicicletasService.save(updatedBicicleta));
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        return null;
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteBicicleta(@PathVariable String id) {
-        bicicletasService.deleteById(id);
-        return "Bicicleta deletada com sucesso!";
-    }
+    public ResponseEntity<String> deleteBicicleta(@PathVariable String id) {
+        if (bicicletasService.findById(id).isPresent()) {
+            bicicletasService.deleteById(id);
+            return ResponseEntity.ok("Bicicleta deletada com sucesso!");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }    
 }

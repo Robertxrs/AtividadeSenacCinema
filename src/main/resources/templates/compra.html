@@ -579,6 +579,50 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 .titulo p {
   margin-bottom: 4px;
 }
+    .dark-mode {
+  --background-main: var(--cor-10);
+  --background-secondary: var(--cor-11);
+  --background-highlight: var(--cor-p3);
+  --text-main: var(--cor-3);
+  --text-secondary: var(--cor-1);
+  --text-muted: var(--cor-6);
+}
+
+
+
+.dark-mode .titulo-bg,
+.dark-mode .orcamento-detalhes {
+  background-color: var(--background-secondary);
+}
+
+.dark-mode .titulo-bg h1,
+.dark-mode .orcamento-detalhes ul,
+.dark-mode .orcamento-detalhes img {
+  color: var(--text-main);
+}
+
+.dark-mode .orcamento-detalhes ul li img {
+  filter: invert(1);
+}
+
+
+.dark-mode .orcamento-dados{
+  background-color: var(--background-main);
+  color: var(--text-main);
+}
+.dark-mode .main-bg{
+    background-color: var(--background-secondary);
+}
+
+.dark-mode .orcamento-dados label {
+  color: var(--text-secondary);
+}
+
+.dark-mode .orcamento-dados h2 {
+  color: var(--text-secondary);
+}
+
+
 
 
     </style>  
@@ -590,13 +634,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
       </a>
       <nav aria-label="primaria">
         <ul class="header-menu font-1-m cor-0">
-          <li><a href="/">Modo Escuro</a></li>
+          <li><a class="botaoEscuro">Modo Escuro</a></li>
         </ul>
       </nav>
     </div>
   </header>  
         
-  <main>
+  <main class="main-bg">
     <div class="titulo-bg">
       <div class="titulo container">
         <p class="font-2-l-b cor-5">Cotações no seu email</p>
@@ -623,7 +667,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
           </div>
 
           <input type="radio" name="produto" value="magic" id="magic">
-          <label for="magic">Magic Might <span>R$ 2489</span></label>
+          <label for="magic">Magic Might <span>R$ 2499</span></label>
           <div class="orcamento-detalhes">
             <ul class="font-1-xs cor-8">
               <li><img src="/img/eletrica.svg" alt=""> Motor Elétrico</li>
@@ -788,6 +832,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     document.querySelector('.orcamento').addEventListener('submit', validarFormulario);
 
 
+//      modo dark
+        function modoEscuro() {
+        return {
+          escuro: document.querySelector('.botaoEscuro'),
+
+          inicia() {
+            this.pressionaBotao();
+          },
+
+          pressionaBotao() {
+            this.escuro.addEventListener('click', () => {
+              document.documentElement.classList.toggle('dark-mode');
+            });
+          },
+        }
+      }
+
+      const modo = modoEscuro();
+      modo.inicia();
     </script>
     
     </body>
